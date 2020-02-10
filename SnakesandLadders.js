@@ -65,10 +65,10 @@ class SnakesLadders {
     }
     // die1, die2 number between 1 - 6;
     const sum = die1 + die2;
-    let newTurn = !this.turn; // change turns
+    let newTurn = this.turn === 1 ? 0 : 1; // change turns
     if (die1 === die2) { // do not change turn if die values are the same
-      newTurn = !this.turn;
-    }
+      newTurn = newTurn === 1 ? 0 : 1;
+    } 
     if (this.turn) {
       this.calculateValue(sum, "player1");
       if (this.player1 === 100) {
@@ -121,3 +121,6 @@ class SnakesLadders {
     return this[key];
   }
 }
+
+let game = new SnakesLadders();
+console.log(game.play(1, 5))
